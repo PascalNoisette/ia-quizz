@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: './05-quizz-game/package-lock.json'
+      - name: Install Dependencies
+        run: npm install
+        working-directory: ./05-quizz-game
+      - name: Build
+        run: npm run build
+        working-directory: ./05-quizz-game
+      - name: Add .nojekyll file
+        run: touch ./05-quizz-game/out/.nojekyll
+      - name: Preserve quizz we do not import quizz from main to gh-pages
+        run: rm ./05-quizz-game/out/Comprehensive_Rules.quizz.csv ./05-quizz-game/out/Rulebook.quizz.csv .github/workflows/ci.yml
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: gh-pages
+          folder: ./05-quizz-game/out
+          clean-exclude: |
+            Comprehensive_Rules.quizz.csv
+            Rulebook.quizz.csv
