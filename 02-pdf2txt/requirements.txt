@@ -1,0 +1,2 @@
+git+https://github.com/neuml/txtai#egg=txtai[pipeline]
+txtai

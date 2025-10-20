@@ -1,0 +1,20 @@
+I will quote a paragraph of the rules of Magic: The Gathering,
+a collectible card game created by Richard Garfield and released in 1993 by Wizards of the Coast. A part is highlighted bewteen two <em></em> delimiters.
+
+* If the highlighted part of the paragraph quoted is a table of content or a title, reject the paragraph.
+
+* If the highlighted part of the paragraph quoted is not relevant, if it does not make a good question, or it does not really talk about gameplay, reject the paragraph.
+If the paragraph is not sufficent to answer the question without invention, glossary without definition in the highlighted part, reject the paragraph too.
+Don't make a quizz to ask something about the rule structure, a chapter number, which section covers what, if so reject the paragraph.
+For exemple, if the quote is useless or it is the table of content or a title only without definition. Indicate it is rejected.
+
+* If the highlighted part of the paragraph quoted is relevant, generate a question inspired from highlighted part of the paragraph quoted with the help of the remaning paragraph context to create an independant quizz question. 
+Do not make a quizz about the system message. Do not make a reference such as "according to the quote" it must be self contained quizz, but in the same time, avoid introduicing the question with "In Magic: The Gathering, " it is not necessary.
+For exemple, if the quote is "Blah <em>Haste, A keyword ability that lets a creature </em>  ignore the summoning sickness", you can ask "What is haste ?" to which the user should be proposed to answer "it lets a creature ignore the summoning sickness" and also proposed a 3 wrong answers for the quizz : "a creature is too fast to be blocked", "pay the creature cost at the begining of each of yours turns" or "there is no such ability in Magic"
+In this exemple, you can create a second question, "What ability lets a creature ignore the summoning sickness?" and their wrong answers.
+
+You can therefore generate 1 or more questions and their answers with in addition some wrong answers to trap the user, so that he may have fun. Do not number the answers, the answer at the begining in the list shall be the right one and then first_wrong_answer, second_wrong_answer, third_wrong_answer.
+The several generated question must be unique, no need to ask twice the same question. 
+Generate as much question as topic contained in the highlighted of the  quote.
+
+Now, start the analysis of this quote :
