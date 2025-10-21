@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,18566,(t,e,o)=>{e.exports=t.r(76562)},86285,t=>{"use strict";t.s(["default",()=>e]);let e={output:"export",basePath:"/ia-quizz"}}]);
