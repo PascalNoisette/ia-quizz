@@ -91,7 +91,7 @@ export default  function Quizz({ route, filename }:{ route:string, filename:stri
     <div  className="w-full text-right">
       <a 
         className="rounded-full border border-solid border-transparent bg-[#fae2f1] p-2 text-xs" 
-        href={`https://github.com/PascalNoisette/ia-quizz/edit/main/04-quizz-game/public/${filename}#L${Number(param.get('question'))+2}`}
+        href={`https://github.com/PascalNoisette/ia-quizz/edit/gh-pages/${filename}#L${Number(param.get('question'))+2}`}
         title="the question can be improved">Edit the question</a>
       </div>
      <h2 className="font-bold text-xl text-center p-4  w-full">
