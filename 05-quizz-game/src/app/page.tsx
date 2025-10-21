@@ -1,24 +1,28 @@
 import Link from "next/link";
+import { generateStaticParams as getAvailableQuizz } from "./quizz/[slug]/page";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <Link
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="/quizz/Comprehensive_Rules.quizz.csv"
-            rel="nofollow"
-            title="Rulebook for beginners"
-          >
-            Start quizz
-          </Link>
-          <Link
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="/quizz/Magic-The-Gathering-Rulebook.quizz.csv"
-            rel="nofollow"
-            title="Comprehensive rules"
-          >
-            Start quizz (PGM)
-          </Link>
-        </div>
+    <>
+      <h2  className="font-bold text-xl text-center p-4  w-full">Select a quizz :</h2>
+      <div className="flex gap-4 items-center flex-row sm:flex-row">
+        <ul>
+          {await (await getAvailableQuizz()).map(({slug}, index) => (
+            <li 
+              key={index}
+              className=" list-disc"
+              ><Link
+              className={`flex items-center py-3`} 
+              href={`/quizz/${slug}`}
+              rel="nofollow"
+              title={slug}
+            >
+              <span className={` hover:underline`} > {slug}</span>
+            </Link></li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
+
