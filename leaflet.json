@@ -1,0 +1,18 @@
+{
+    "Rulebook.quizz.csv":{
+        "name":"Rulebook for begginners",
+        "filenames":[
+            "Rulebook.quizz.csv"
+        ]
+    },
+    "Comprehensive_Rules.quizz.csv":{
+        "name":"Comprehensive rules for PGM",
+        "filenames":[
+            "Comprehensive_Rules.quizz.1.csv",
+            "Comprehensive_Rules.quizz.2.csv",
+            "Comprehensive_Rules.quizz.3.csv",
+            "Comprehensive_Rules.quizz.4.csv",
+            "Comprehensive_Rules.quizz.5.csv"
+        ]
+    }
+}
