@@ -21,10 +21,12 @@ export default  function Quizz({ route, filename }:{ route:string, filename:stri
   useEffect( () => {
     (async () => {
       try {
-        setCsvData(await getCsvData(`${nextConfig.basePath}/${filename}`));
+        if (filename) {
+          setCsvData(await getCsvData(`${nextConfig.basePath}/${filename}`));
+        }
       } catch (e) {
-        if (e instanceof Error) {
-          setError(e.toString());
+        if (e instanceof Error) { 
+          setError("setCsvData : " + e.toString());
         }
       }
     })();
@@ -41,9 +43,9 @@ export default  function Quizz({ route, filename }:{ route:string, filename:stri
       localStorage.setItem(routerAsPath(), "skip");
     }
     const randomQuestionId = Math.floor(Math.random() * csvData.length)
-    window.history.pushState( {} , "", `${nextConfig.basePath}/${route}/${filename}?question=${randomQuestionId}`);
+    window.history.pushState( {} , "", `${nextConfig.basePath}/${route}?filename=${filename}&question=${randomQuestionId}`);
     setRevealAnswer("")
-  }, [revealAnswer, param, route, filename]);
+  }, [revealAnswer, param, route, filename, csvData]);
 
   const shuffleArray = useCallback((array: string[]) => {
       for (let i = array.length - 1; i > 0; i--) {
@@ -59,12 +61,12 @@ export default  function Quizz({ route, filename }:{ route:string, filename:stri
   }, [routerAsPath]);
 
   useEffect(() => {
-    if (csvData.length >0) {
+    if (filename && csvData.length >0) {
       if (isNaN(Number(param.get('question'))) || Number(param.get('question')) <= 0 || Number(param.get('question')) > csvData.length) {
         loadNextQuestion();
       }
     }
-  }, [param, csvData, loadNextQuestion]);
+  }, [filename, param, csvData, loadNextQuestion]);
 
   useEffect(()=>{
     setQuizz(csvData[Number(param.get('question'))]);

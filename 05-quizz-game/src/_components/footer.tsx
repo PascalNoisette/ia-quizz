@@ -12,7 +12,7 @@ export default function Footer() {
           <Image
             aria-hidden
             src={`${nextConfig.basePath}/file.svg`}
-            alt="File icon"
+            alt="My results"
             width={16}
             height={16}
           />
@@ -26,7 +26,7 @@ export default function Footer() {
           <Image
             aria-hidden
             src={`${nextConfig.basePath}/window.svg`}
-            alt="Window icon"
+            alt="Home"
             width={16}
             height={16}
           />
@@ -41,7 +41,7 @@ export default function Footer() {
           <Image
             aria-hidden
             src={`${nextConfig.basePath}/globe.svg`}
-            alt="Globe icon"
+            alt="Check the official rule"
             width={16}
             height={16}
           />
@@ -56,7 +56,7 @@ export default function Footer() {
           <Image
             aria-hidden
             src={`${nextConfig.basePath}/globe.svg`}
-            alt="Globe icon"
+            alt="Check the basic rulebook"
             width={16}
             height={16}
           />
