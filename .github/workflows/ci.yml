@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '05-quizz-game/**'
 jobs:
   release:
     runs-on: ubuntu-latest
