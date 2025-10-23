@@ -5,7 +5,7 @@ def main(input, output):
     doc = (Pipeline()
         .fetch_from("file", path=input)
         .process_with("text")
-        .chunk_with("sentence", chunk_size=150)
+        .chunk_with("sentence", chunk_size=150, delim=['.', '!', '?', '\\n', '\\n\\n'])
         .run())
 
     print(f"Created {len(doc.chunks)} chunks")
